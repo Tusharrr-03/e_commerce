@@ -1,10 +1,10 @@
-import 'package:e_commerce/screens/Login%20Screens/login.dart';
-import 'package:e_commerce/screens/Login%20Screens/sign_up.dart';
-import 'package:e_commerce/screens/cart_page.dart';
-import 'package:e_commerce/screens/detail_page.dart';
-import 'package:e_commerce/screens/home_page.dart';
-import 'package:e_commerce/screens/splash_screen.dart';
-import 'package:e_commerce/utils/utils_helper.dart';
+import 'package:e_commerce/screens/login/login.dart';
+import 'package:e_commerce/screens/sign_up/sign_up.dart';
+import 'package:e_commerce/screens/cart/cart_page.dart';
+import 'package:e_commerce/screens/detail/detail_page.dart';
+import 'package:e_commerce/screens/home/home_page.dart';
+import 'package:e_commerce/screens/splash/splash_screen.dart';
+import 'package:e_commerce/utils/constants/utils_helper.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {

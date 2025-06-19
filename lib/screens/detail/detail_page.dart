@@ -1,6 +1,6 @@
-import 'package:e_commerce/screens/cart_page.dart';
-import 'package:e_commerce/utils/app_const.dart';
-import 'package:e_commerce/utils/utils_helper.dart';
+import 'package:e_commerce/screens/cart/cart_page.dart';
+import 'package:e_commerce/utils/constants/app_const.dart';
+import 'package:e_commerce/utils/constants/utils_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -19,12 +19,17 @@ class _DetailPageState extends State<DetailPage> {
   double mWidth = 0.0;
 
   int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
     mHeight = mediaQueryData!.size.height;
     mWidth = mediaQueryData!.size.width;
+    print("Screen Width : $mWidth");
+    print("Screen Height : $mHeight");
+
+    bool isSmallScreen = mWidth<600;
+    bool isMediumScreen = mWidth>=600 && mWidth<1024;
+    bool isLargeScreen = mWidth>=1024;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -62,15 +67,15 @@ class _DetailPageState extends State<DetailPage> {
           children: [
             /// Image
             Container(
-              width: double.infinity,
-              height: mHeight * 0.4,
+              width: isSmallScreen ? mWidth * 0.9 : isMediumScreen ? mWidth * 0.6 : 0.4,
+              //height: mHeight * 0.4,
               child: Image.asset("${widget.productDetail['image']}"),
             ),
             /// Details of the Product.
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              width: double.infinity,
-              height: mHeight * 0.6,
+              width: isSmallScreen ? mWidth * 1 : isMediumScreen ? mWidth * 0.6 : 0.4,
+              //height: mHeight * 0.6,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -155,7 +160,7 @@ class _DetailPageState extends State<DetailPage> {
                             setState(() {});
                           },
                           child: Container(
-                            width: index == 1 ? 130 : (index == 0 ? 120 : 110),
+                            //width: mWidth * 0.5 * index == 1 ? 130 : (index == 0 ? 120 : 110),
                             height: 50,
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             decoration: BoxDecoration(
@@ -182,11 +187,12 @@ class _DetailPageState extends State<DetailPage> {
                         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
                         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris '
                         'nisi ut aliquip ex ea commodo consequat.',
+                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 16),
                   ),SizedBox(height: 10,),
                   Center(
                     child: Container(
-                      width: 320,
+                      width: mWidth * 0.8,
                       height: 70,
                       decoration: BoxDecoration(
                         color: AppConstants.secondaryColor,

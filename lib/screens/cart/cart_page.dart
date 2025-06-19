@@ -1,5 +1,5 @@
-import 'package:e_commerce/utils/app_const.dart';
-import 'package:e_commerce/utils/utils_helper.dart';
+import 'package:e_commerce/utils/constants/app_const.dart';
+import 'package:e_commerce/utils/constants/utils_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -27,103 +27,108 @@ class _CartPageState extends State<CartPage> {
       ),
       body: Column(
         children: [
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: UtilsHelper.mProduct.length,
-            itemBuilder: (_, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 6,
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 10,
+          Container(
+            width: MediaQuery.of(context).size.width*1,
+            height: MediaQuery.of(context).size.height*0.5,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: UtilsHelper.mProduct.length,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 6,
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
+                          ),
+                          width: 120,
+                          height: 120,
+                          child: Image.asset(
+                            UtilsHelper.mProduct[index]['image'],
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        width: 120,
-                        height: 120,
-                        child: Image.asset(
-                          UtilsHelper.mProduct[index]['image'],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: 90,
-                            child: Text(
-                              "${UtilsHelper.mProduct[index]['title']}",
-                              style: mTextStyle24(mFontWeight: FontWeight.bold),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          Text(
-                            "Type",
-                            style: mTextStyle14(mColors: Colors.grey),
-                          ),
-                          Text(
-                            "Mrp",
-                            style: mTextStyle16(mFontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: 8),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                        SizedBox(width: 8),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Iconsax.trash,
-                                color: AppConstants.primaryColors,
+                            Container(
+                              width: 90,
+                              child: Text(
+                                "${UtilsHelper.mProduct[index]['title']}",
+                                style: mTextStyle24(mFontWeight: FontWeight.bold),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            SizedBox(height: 10),
-                            Container(
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.only(right: 7, bottom: 5),
-                              width: 113,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade200,
-                                borderRadius: BorderRadius.circular(21),
-                              ),
-                              child: Center(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(Iconsax.minus),
-                                    ),
-                                    Text("1"),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(Iconsax.add),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            Text(
+                              "Type",
+                              style: mTextStyle14(mColors: Colors.grey),
+                            ),
+                            Text(
+                              "Mrp",
+                              style: mTextStyle16(mFontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Iconsax.trash,
+                                  color: AppConstants.primaryColors,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                margin: EdgeInsets.only(right: 7, bottom: 5),
+                                width: 113,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade200,
+                                  borderRadius: BorderRadius.circular(21),
+                                ),
+                                child: Center(
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(Iconsax.minus),
+                                      ),
+                                      Text("1"),
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(Iconsax.add),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
           Expanded(child: SizedBox(height: 10)),
           Container(
             padding: EdgeInsets.all(20),
             width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(50),

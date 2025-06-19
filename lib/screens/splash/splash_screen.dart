@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:e_commerce/Routes_Helper/routes_helper.dart';
-import 'package:e_commerce/screens/Login%20Screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,9 +20,22 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 2), () {
+    Timer(Duration(seconds: 2), () async{
       //Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-      Navigator.pushNamed(context, AppRoutes.ROUTELOGINSCREEN);
+
+
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? tokan = prefs.getString("tokan");
+      print("Tokan from Splash : $tokan");
+
+      String nextPageNamed = AppRoutes.ROUTELOGINSCREEN;
+      if(tokan!=null){
+        nextPageNamed = AppRoutes.ROUTEHOMESCREEN;
+      } else{
+        nextPageNamed = AppRoutes.ROUTELOGINSCREEN;
+      }
+
+      Navigator.pushNamed(context, nextPageNamed);
     });
 
     _animationController = AnimationController(
