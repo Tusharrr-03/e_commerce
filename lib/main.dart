@@ -1,8 +1,10 @@
 import 'package:e_commerce/Routes_Helper/routes_helper.dart';
 import 'package:e_commerce/data/remote/helper/api_helper.dart';
+import 'package:e_commerce/data/remote/repository/cart_repo.dart';
 import 'package:e_commerce/data/remote/repository/category_repo.dart';
 import 'package:e_commerce/data/remote/repository/product_repo.dart';
 import 'package:e_commerce/data/remote/repository/user_repo.dart';
+import 'package:e_commerce/screens/cart/bloc/cart_bloc.dart';
 import 'package:e_commerce/screens/home/bloc/category/category_bloc.dart';
 import 'package:e_commerce/screens/home/bloc/product/product_bloc.dart';
 import 'package:e_commerce/screens/login/bloc/login_bloc.dart';
@@ -32,6 +34,10 @@ void main() {
         BlocProvider(
           create:
               (context) => CatBloc(catRepo: CatRepo(apiHelper: ApiHelper())),
+        ),
+        BlocProvider(
+          create:
+              (context) => CartBloc(cartRepo: CartRepo(apiHelper: ApiHelper())),
         ),
       ],
       child: MyApp(),

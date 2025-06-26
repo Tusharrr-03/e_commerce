@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? tokan = prefs.getString("tokan");
-      print("Tokan from Splash : $tokan");
+      print("Tokan : $tokan");
 
       String nextPageNamed = AppRoutes.ROUTELOGINSCREEN;
       if(tokan!=null){

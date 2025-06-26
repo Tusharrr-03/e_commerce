@@ -76,46 +76,44 @@ class _CartPageState extends State<CartPage> {
                           ],
                         ),
                         SizedBox(width: 8),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Iconsax.trash,
-                                  color: AppConstants.primaryColors,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Iconsax.trash,
+                                color: AppConstants.primaryColors,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              padding: EdgeInsets.all(5),
+                              margin: EdgeInsets.only(right: 7, bottom: 5),
+                              width: 113,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade200,
+                                borderRadius: BorderRadius.circular(21),
+                              ),
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(Iconsax.minus),
+                                    ),
+                                    Text("1"),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(Iconsax.add),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(height: 10),
-                              Container(
-                                padding: EdgeInsets.all(5),
-                                margin: EdgeInsets.only(right: 7, bottom: 5),
-                                width: 113,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.shade200,
-                                  borderRadius: BorderRadius.circular(21),
-                                ),
-                                child: Center(
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(Iconsax.minus),
-                                      ),
-                                      Text("1"),
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(Iconsax.add),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -124,11 +122,11 @@ class _CartPageState extends State<CartPage> {
               },
             ),
           ),
-          Expanded(child: SizedBox(height: 10)),
+          SizedBox(height: 10),
           Container(
             padding: EdgeInsets.all(20),
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            //height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(50),

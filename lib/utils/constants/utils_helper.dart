@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class UtilsHelper{
@@ -97,30 +98,26 @@ class UtilsHelper{
     "Reviews",
   ];
 
- /* static const List<Map<String, dynamic>> detailPage = [
+  static const List<Map<String, dynamic>> bottomNavigation = [
     {
-      'image' : 'assets/images/items_image.png',
-      'title' : 'Samsung Buds2',
-      'mrp' : '₹ 9,500',
-      'seller' : 'Ridhi Zone'
+      'icon' : Icons.more_horiz,
+      'title' : 'more',
     },
     {
-      'image' : 'assets/images/items_image2.png',
-      'title' : 'Ralph Loren',
-      'mrp' : '₹ 2,500',
-      'seller' : 'Unknown'
+      'icon' : Icons.favorite_outlined,
+      'title' : 'Favorite',
     },
     {
-      'image' : 'assets/images/items_image3.png',
-      'title' : 'Kuxiu',
-      'mrp' : '₹ 4,500',
-      'seller' : 'Unknown'
+      'icon' : Icons.home,
+      'title' : 'home',
     },
     {
-      'image' : 'assets/images/items_image4.png',
-      'title' : 'Evo Fox x2',
-      'mrp' : '₹ 1,500',
-      'seller' : 'Unknown'
+      'icon' : Icons.shopping_cart,
+      'title' : 'Cart',
     },
-  ];*/
+    {
+      'icon' : Icons.person,
+      'title' : 'Profile',
+    },
+  ];
  }
