@@ -9,7 +9,7 @@ class ApiHelper {
   /// Get API function
 
   Future<dynamic> getAPI({required String url,
-    required Map<String, String> mHeaders,
+    Map<String, String>? mHeaders,
     bool isAuth = false
   }) async{
 
@@ -17,7 +17,7 @@ class ApiHelper {
       /// Getting tokan from Shared Preferences
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String tokan = prefs.getString("tokan") ?? "";
-      mHeaders["Authorization"] = "Bearer $tokan";
+      mHeaders!["Authorization"] = "Bearer $tokan";
       print("Tokan Value $tokan");
       print("Headers : $mHeaders");
     }
